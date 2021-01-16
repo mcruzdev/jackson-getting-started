@@ -34,8 +34,6 @@ public class CommandControllerTest {
 
         CommandResponse commandResponse = new CommandResponse("STATUS", "ONE", asList("1"));
 
-        String response = this.objectMapper.writeValueAsString(commandResponse);
-
         this.mockMvc
                 .perform(MockMvcRequestBuilders.get("/commands")
                         .contentType(MediaType.APPLICATION_JSON)

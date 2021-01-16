@@ -26,15 +26,13 @@ public class CommandController {
     private ObjectMapper objectMapper;
 
     @GetMapping
-    public ResponseEntity<String> get(@Valid CommandRequest commandRequest) throws JsonProcessingException {
+    public ResponseEntity<?> get(@Valid CommandRequest commandRequest) throws JsonProcessingException {
 
         ResponseEntity<CommandResponse> response =
             restTemplate.postForEntity(legacySystemUrl.concat("/Legacy_Get"), commandRequest, CommandResponse.class);
 
         CommandResponse responseBody = response.getBody();
 
-        String responseAsString = objectMapper.writeValueAsString(responseBody);
-
-        return ResponseEntity.ok(responseAsString);
+        return ResponseEntity.ok(responseBody);
     }
 }
