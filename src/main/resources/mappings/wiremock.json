@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/Legacy_Get",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.Command_Name == 'STATUS' && @.Command_Target == 'ONE')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "Command_Name": "STATUS",
+      "Command_Target": "ONE",
+      "Command_Result_Payload": [
+        "1"
+      ]
+    }
+  }
+}
